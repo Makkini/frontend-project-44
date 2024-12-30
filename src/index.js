@@ -1,26 +1,22 @@
-import readlineSync from "readline-sync";
+import readlineSync from 'readline-sync';
 
-
-export const game = (name, questionGenerationFunc, correctAnswerFunc) => {
-    let gameContinueFlag = true;
-    let answerCount = 0;
-    while (gameContinueFlag && answerCount !== 3) {
-        const question = questionGenerationFunc();
-        const correctAnswer = correctAnswerFunc(question);
-        console.log("Question: ", question);
-        const userAnswer = readlineSync.question('Your answer: ');
-        if (userAnswer === correctAnswer) {
-            console.log('Correct!');
-            answerCount++;
-        } else {
-            console.log(`'${userAnswer}' is wrong answer ;(. Correct answer was '${correctAnswer}'.`);
-            console.log(`Let's try again, ${name}!`);
-            gameContinueFlag = false;
-        }
-
+export const gameCreate = (name, questionGenerationFunc, correctAnswerFunc) => {
+  let gameContinueFlag = true;
+  for (let i = 0; i < 3 && gameContinueFlag; i++) {
+    const question = questionGenerationFunc();
+    const correctAnswer = correctAnswerFunc(question);
+    console.log('Question: ', question);
+    const userAnswer = readlineSync.question('Your answer: ');
+    if (userAnswer === correctAnswer) {
+      console.log('Correct!');
+    } else {
+      console.log(`'${userAnswer}' is wrong answer ;(. Correct answer was '${correctAnswer}'.`);
+      console.log(`Let's try again, ${name}!`);
+      gameContinueFlag = false;
     }
-    if (answerCount === 3) {
-        console.log(`Congratulations, ${name}!`);
-    }
-}
 
+    if (i === 2 && gameContinueFlag) {
+      console.log(`Congratulations, ${name}!`);
+    }
+  }
+};
