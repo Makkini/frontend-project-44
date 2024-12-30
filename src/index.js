@@ -2,8 +2,8 @@ import readlineSync from 'readline-sync';
 import { greetings } from './cli.js';
 
 export const gameCreate = (questionGenerationFunc, correctAnswerFunc, gameDescription) => {
-  const name = greetings(); // Сначала приветствие и имя
-  console.log(gameDescription); // Выводим описание игры
+  const name = greetings();
+  console.log(gameDescription);
 
   let gameContinueFlag = true;
   for (let i = 0; i < 3 && gameContinueFlag; i++) {
