@@ -8,9 +8,9 @@ const isPrime = (num) => {
   return num > 1;
 };
 
-export const isPrimeGame = (name) => {
-  console.log('Answer "yes" if given number is prime. Otherwise answer "no".');
+export const isPrimeGame = () => {
   const getQuestion = () => getRandomInt(40);
   const getCorrectAnswer = (question) => (isPrime(question) ? 'yes' : 'no');
-  gameCreate(name, getQuestion, getCorrectAnswer);
+  const gameDescription = 'Answer "yes" if given number is prime. Otherwise answer "no".';
+  gameCreate(getQuestion, getCorrectAnswer, gameDescription);
 };

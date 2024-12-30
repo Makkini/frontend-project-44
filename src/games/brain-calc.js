@@ -1,8 +1,7 @@
 import { gameCreate } from '../index.js';
 import { getRandomExpression } from '../utils.js';
 
-export const calcGame = (name) => {
-  console.log('What is the result of the expression?');
+export const calcGame = () => {
   const getQuestion = () => getRandomExpression();
   const getCorrectAnswer = (question) => {
     const splitExpression = question.split(' ');
@@ -18,5 +17,6 @@ export const calcGame = (name) => {
       return (num1 * num2).toString();
     }
   };
-  gameCreate(name, getQuestion, getCorrectAnswer);
+  const gameDescription = 'What is the result of the expression?';
+  gameCreate(getQuestion, getCorrectAnswer, gameDescription);
 };

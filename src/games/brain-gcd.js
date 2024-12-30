@@ -13,12 +13,12 @@ const gcdFound = (a, b) => {
   }
 };
 
-export const gcdGame = (name) => {
+export const gcdGame = () => {
   const getQuestion = () => getRandomGcdNums();
   const getCorrectAnswer = (question) => {
     const twoNums = question.split(' ');
     return gcdFound(twoNums[0], twoNums[1]).toString();
   };
-
-  gameCreate(name, getQuestion, getCorrectAnswer);
+  const gameDescription = 'Find the greatest common divisor of given numbers.';
+  gameCreate(getQuestion, getCorrectAnswer, gameDescription);
 };

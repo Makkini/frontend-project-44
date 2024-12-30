@@ -3,9 +3,10 @@ import { getRandomInt } from '../utils.js';
 
 const isEven = (number) => number % 2 === 0;
 
-export const evenOddGame = (name) => {
-  console.log('Answer "yes" if the number is even, otherwise answer "no".');
+export const evenOddGame = () => {
   const getQuestion = () => getRandomInt(40);
   const getCorrectAnswer = (question) => (isEven(question) ? 'yes' : 'no');
-  gameCreate(name, getQuestion, getCorrectAnswer);
+
+  const gameDescription = 'Answer "yes" if the number is even, otherwise answer "no".';
+  gameCreate(getQuestion, getCorrectAnswer, gameDescription);
 };
