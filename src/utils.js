@@ -12,11 +12,10 @@ export const getRandomGcdNums = () => `${getRandomInt(40)} ${getRandomInt(40)}`;
 export const getRandomExpression = () => `${getRandomInt(40)} ${getRandomSign()} ${getRandomInt(40)}`;
 
 export const generateExpressionProgression = () => {
-  const arrayExpression = [getRandomInt(40)];
-  const diffProgressionAndIndex = getRandomInt(10);
-  for (let i = 0; i < 10; i++) {
-    arrayExpression.push(arrayExpression[i] + diffProgressionAndIndex);
-  }
-  arrayExpression[diffProgressionAndIndex] = '..';
-  return arrayExpression.join(' ');
+  const start = getRandomInt(40);
+  const diff = getRandomInt(10) + 1;
+  const hiddenIndex = getRandomInt(10);
+  const progression = Array.from({ length: 10 }, (_, i) => start + i * diff);
+  progression[hiddenIndex] = '..';
+  return progression.join(' ');
 };
