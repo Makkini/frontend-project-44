@@ -12,3 +12,14 @@
 2. Установка зависимостей:
     ```bash
    npm install
+
+## Скриншоты тестов
+![Brain-even](src/images/brain-even.jpg)
+
+![Brain-calc](src/images/brain-calc.jpg)
+
+![Brain-gcd](src/images/brain-gcd.jpg)
+
+![Brain-progression](src/images/brain-progression.jpg)
+
+![Brain-prime](src/images/brain-prime.jpg)
