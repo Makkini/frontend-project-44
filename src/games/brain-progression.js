@@ -3,23 +3,14 @@ import { generateExpressionProgression } from '../utils.js';
 
 export const progressionGame = () => {
   const getQuestion = () => generateExpressionProgression();
+  // eslint-disable-next-line consistent-return
   const getCorrectAnswer = (question) => {
-    const arr = question.split(' ').map((el) => (el === '..' ? el : Number(el)));
-    const index = arr.indexOf('..');
-    const diff = arr.find((el, idx) => idx > 0 && typeof el === 'number') - arr.find((el, idx) => idx === 0 && typeof el === 'number');
-
-    if (index === 0) {
-      return (arr[1] - diff).toString();
+    const arr = question.split(' ');
+    for (let i = 0; i < arr.length; i += 1) {
+      if (arr[i] === '..') {
+        return (+arr[i - 1] + +arr[i - 1] - +arr[i - 2]).toString();
+      }
     }
-
-    if (index > 0 && index < arr.length - 1) {
-      return (arr[index - 1] + diff).toString();
-    }
-
-    if (index === arr.length - 1) {
-      return (arr[index - 1] + diff).toString();
-    }
-    return null;
   };
 
   const gameDescription = 'What number is missing in the progression?';

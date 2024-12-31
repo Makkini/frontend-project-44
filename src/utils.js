@@ -14,7 +14,7 @@ export const getRandomExpression = () => `${getRandomInt(40)} ${getRandomSign()}
 export const generateExpressionProgression = () => {
   const start = getRandomInt(40);
   const diff = getRandomInt(10) + 1;
-  const hiddenIndex = getRandomInt(10);
+  const hiddenIndex = getRandomInt(7) + 2;
   const progression = Array.from({ length: 10 }, (_, i) => start + i * diff);
   progression[hiddenIndex] = '..';
   return progression.join(' ');
