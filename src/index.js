@@ -9,7 +9,7 @@ export const gameCreate = (questionGenerationFunc, correctAnswerFunc, gameDescri
   for (let i = 0; i < 3 && gameContinueFlag; i++) {
     const question = questionGenerationFunc();
     const correctAnswer = correctAnswerFunc(question);
-    console.log('Question: ', question);
+    console.log('Question:', question);
     const userAnswer = readlineSync.question('Your answer: ');
     if (userAnswer === correctAnswer) {
       console.log('Correct!');
