@@ -1,7 +1,7 @@
-import { gameCreate } from '../index.js';
+import gameCreate from '../index.js';
 import { getRandomExpression } from '../utils.js';
 
-export const calcGame = () => {
+const calcGame = () => {
   const getQuestion = () => getRandomExpression();
   const getCorrectAnswer = (question) => {
     const splitExpression = question.split(' ');
@@ -21,3 +21,5 @@ export const calcGame = () => {
   const gameDescription = 'What is the result of the expression?';
   gameCreate(getQuestion, getCorrectAnswer, gameDescription);
 };
+
+export default calcGame;

@@ -1,7 +1,7 @@
 import readlineSync from 'readline-sync';
-import { greetings } from './cli.js';
+import greetings from './cli.js';
 
-export const gameCreate = (questionGenerationFunc, correctAnswerFunc, gameDescription) => {
+const gameCreate = (questionGenerationFunc, correctAnswerFunc, gameDescription) => {
   const name = greetings();
   console.log(gameDescription);
 
@@ -24,3 +24,5 @@ export const gameCreate = (questionGenerationFunc, correctAnswerFunc, gameDescri
     }
   }
 };
+
+export default gameCreate;

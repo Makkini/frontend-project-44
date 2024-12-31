@@ -33,7 +33,6 @@ export default [
   ...compat.extends('airbnb-base'), // После установки конфигурации airbnb-base это должно работать
   {
     rules: {
-      'import/prefer-default-export': 'off',
       'no-underscore-dangle': [
         'error',
         {

@@ -1,7 +1,7 @@
-import { gameCreate } from '../index.js';
+import gameCreate from '../index.js';
 import { generateExpressionProgression } from '../utils.js';
 
-export const progressionGame = () => {
+const progressionGame = () => {
   const getQuestion = () => generateExpressionProgression();
   // eslint-disable-next-line consistent-return
   const getCorrectAnswer = (question) => {
@@ -16,3 +16,5 @@ export const progressionGame = () => {
   const gameDescription = 'What number is missing in the progression?';
   gameCreate(getQuestion, getCorrectAnswer, gameDescription);
 };
+
+export default progressionGame;
