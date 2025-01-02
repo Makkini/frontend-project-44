@@ -31,7 +31,7 @@ const startCalcGame = () => {
     const operator = splitExpression[1];
     const num2 = +splitExpression[2];
 
-    generateExpression(operator, num1, num2);
+    return generateExpression(operator, num1, num2);
   };
   const gameDescription = 'What is the result of the expression?';
   startGame(getQuestion, getCorrectAnswer, gameDescription);
