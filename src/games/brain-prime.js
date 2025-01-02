@@ -1,5 +1,5 @@
-import gameCreate from '../index.js';
-import { getRandomInt } from '../utils.js';
+import startGame from '../index.js';
+import getRandomInt from '../utils.js';
 
 const isPrime = (num) => {
   for (let i = 2; i <= Math.sqrt(num); i += 1) {
@@ -8,11 +8,11 @@ const isPrime = (num) => {
   return num > 1;
 };
 
-const isPrimeGame = () => {
+const startPrimeGame = () => {
   const getQuestion = () => getRandomInt(40);
   const getCorrectAnswer = (question) => (isPrime(question) ? 'yes' : 'no');
   const gameDescription = 'Answer "yes" if given number is prime. Otherwise answer "no".';
-  gameCreate(getQuestion, getCorrectAnswer, gameDescription);
+  startGame(getQuestion, getCorrectAnswer, gameDescription);
 };
 
-export default isPrimeGame;
+export default startPrimeGame;

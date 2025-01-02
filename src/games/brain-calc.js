@@ -1,7 +1,29 @@
-import gameCreate from '../index.js';
-import { getRandomExpression } from '../utils.js';
+import startGame from '../index.js';
+import getRandomInt from '../utils.js';
 
-const calcGame = () => {
+const getRandomSign = () => {
+  const randomNum = Math.random() * 100;
+  if (randomNum < 33) {
+    return '+';
+  } if (randomNum < 66) {
+    return '-';
+  }
+  return '*';
+};
+const getRandomExpression = () => `${getRandomInt(40)} ${getRandomSign()} ${getRandomInt(40)}`;
+
+// eslint-disable-next-line consistent-return
+const generateExpression = (operator, num1, num2) => {
+  if (operator === '+') {
+    return (num1 + num2).toString();
+  } if (operator === '-') {
+    return (num1 - num2).toString();
+  } if (operator === '*') {
+    return (num1 * num2).toString();
+  }
+};
+
+const startCalcGame = () => {
   const getQuestion = () => getRandomExpression();
   const getCorrectAnswer = (question) => {
     const splitExpression = question.split(' ');
@@ -9,17 +31,11 @@ const calcGame = () => {
     const operator = splitExpression[1];
     const num2 = +splitExpression[2];
 
-    if (operator === '+') {
-      return (num1 + num2).toString();
-    } if (operator === '-') {
-      return (num1 - num2).toString();
-    } if (operator === '*') {
-      return (num1 * num2).toString();
-    }
+    generateExpression(operator, num1, num2);
     return null;
   };
   const gameDescription = 'What is the result of the expression?';
-  gameCreate(getQuestion, getCorrectAnswer, gameDescription);
+  startGame(getQuestion, getCorrectAnswer, gameDescription);
 };
 
-export default calcGame;
+export default startCalcGame;

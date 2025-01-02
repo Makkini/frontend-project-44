@@ -1,7 +1,16 @@
-import gameCreate from '../index.js';
-import { generateExpressionProgression } from '../utils.js';
+import startGame from '../index.js';
+import getRandomInt from '../utils.js';
 
-const progressionGame = () => {
+export const generateExpressionProgression = () => {
+  const start = getRandomInt(40);
+  const diff = getRandomInt(10) + 1;
+  const hiddenIndex = getRandomInt(7) + 2;
+  const progression = Array.from({ length: 10 }, (_, i) => start + i * diff);
+  progression[hiddenIndex] = '..';
+  return progression.join(' ');
+};
+
+const startProgressionGame = () => {
   const getQuestion = () => generateExpressionProgression();
   // eslint-disable-next-line consistent-return
   const getCorrectAnswer = (question) => {
@@ -14,7 +23,7 @@ const progressionGame = () => {
   };
 
   const gameDescription = 'What number is missing in the progression?';
-  gameCreate(getQuestion, getCorrectAnswer, gameDescription);
+  startGame(getQuestion, getCorrectAnswer, gameDescription);
 };
 
-export default progressionGame;
+export default startProgressionGame;
