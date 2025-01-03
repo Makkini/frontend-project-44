@@ -14,12 +14,12 @@
    npm install
 
 ## Скриншоты тестов
-![Brain-even](src/images/brain-even.jpg)
+![Brain-even](images/brain-even.jpg)
 
-![Brain-calc](src/images/brain-calc.jpg)
+![Brain-calc](images/brain-calc.jpg)
 
-![Brain-gcd](src/images/brain-gcd.jpg)
+![Brain-gcd](images/brain-gcd.jpg)
 
-![Brain-progression](src/images/brain-progression.jpg)
+![Brain-progression](images/brain-progression.jpg)
 
-![Brain-prime](src/images/brain-prime.jpg)
+![Brain-prime](images/brain-prime.jpg)
