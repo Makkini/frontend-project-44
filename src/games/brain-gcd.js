@@ -17,16 +17,17 @@ const gcdFound = (a, b) => {
   }
 };
 
-const getRandomGcdNums = () => `${getRandomInt(40)} ${getRandomInt(40)}`;
+const getQuestionAndAnswer = () => {
+  const num1 = getRandomInt(40);
+  const num2 = getRandomInt(40);
+  const question = `${num1} ${num2}`;
+  const correctAnswer = gcdFound(num1, num2).toString();
+  return { question, correctAnswer };
+};
 
 const startGcdGame = () => {
-  const getQuestion = () => getRandomGcdNums();
-  const getCorrectAnswer = (question) => {
-    const twoNums = question.split(' ');
-    return gcdFound(twoNums[0], twoNums[1]).toString();
-  };
   const gameDescription = 'Find the greatest common divisor of given numbers.';
-  startGame(getQuestion, getCorrectAnswer, gameDescription);
+  startGame(getQuestionAndAnswer, gameDescription);
 };
 
 export default startGcdGame;

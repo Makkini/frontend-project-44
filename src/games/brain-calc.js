@@ -2,39 +2,33 @@ import startGame from '../index.js';
 import getRandomInt from '../utils.js';
 
 const getRandomSign = () => {
-  const randomNum = Math.random() * 100;
-  if (randomNum < 33) {
-    return '+';
-  } if (randomNum < 66) {
-    return '-';
-  }
-  return '*';
+  const signs = ['+', '-', '*'];
+  return signs[getRandomInt(3)];
 };
-const getRandomExpression = () => `${getRandomInt(40)} ${getRandomSign()} ${getRandomInt(40)}`;
 
-// eslint-disable-next-line consistent-return
 const generateExpression = (operator, num1, num2) => {
   if (operator === '+') {
-    return (num1 + num2).toString();
+    return (num1 + num2);
   } if (operator === '-') {
-    return (num1 - num2).toString();
+    return (num1 - num2);
   } if (operator === '*') {
-    return (num1 * num2).toString();
+    return (num1 * num2);
   }
+  throw new Error(`Invalid operator: ${operator}`);
+};
+
+const getQuestionAndAnswer = () => {
+  const num1 = getRandomInt(40);
+  const num2 = getRandomInt(40);
+  const operator = getRandomSign();
+  const question = `${num1} ${operator} ${num2}`;
+  const correctAnswer = generateExpression(operator, num1, num2).toString();
+  return { question, correctAnswer };
 };
 
 const startCalcGame = () => {
-  const getQuestion = () => getRandomExpression();
-  const getCorrectAnswer = (question) => {
-    const splitExpression = question.split(' ');
-    const num1 = +splitExpression[0];
-    const operator = splitExpression[1];
-    const num2 = +splitExpression[2];
-
-    return generateExpression(operator, num1, num2);
-  };
   const gameDescription = 'What is the result of the expression?';
-  startGame(getQuestion, getCorrectAnswer, gameDescription);
+  startGame(getQuestionAndAnswer, gameDescription);
 };
 
 export default startCalcGame;

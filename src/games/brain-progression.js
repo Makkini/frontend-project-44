@@ -7,23 +7,23 @@ export const generateExpressionProgression = () => {
   const hiddenIndex = getRandomInt(7) + 2;
   const progression = Array.from({ length: 10 }, (_, i) => start + i * diff);
   progression[hiddenIndex] = '..';
-  return progression.join(' ');
+  return {
+    progression, start, diff, hiddenIndex,
+  };
+};
+
+const getQuestionAndAnswer = () => {
+  const {
+    progression, start, diff, hiddenIndex,
+  } = generateExpressionProgression();
+  const question = progression.join(' ');
+  const correctAnswer = (start + hiddenIndex * diff).toString();
+  return { question, correctAnswer };
 };
 
 const startProgressionGame = () => {
-  const getQuestion = () => generateExpressionProgression();
-  // eslint-disable-next-line consistent-return
-  const getCorrectAnswer = (question) => {
-    const arr = question.split(' ');
-    for (let i = 0; i < arr.length; i += 1) {
-      if (arr[i] === '..') {
-        return (+arr[i - 1] + +arr[i - 1] - +arr[i - 2]).toString();
-      }
-    }
-  };
-
   const gameDescription = 'What number is missing in the progression?';
-  startGame(getQuestion, getCorrectAnswer, gameDescription);
+  startGame(getQuestionAndAnswer, gameDescription);
 };
 
 export default startProgressionGame;

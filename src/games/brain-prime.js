@@ -7,12 +7,14 @@ const isPrime = (num) => {
   }
   return num > 1;
 };
-
+const getQuestionAndAnswer = () => {
+  const question = getRandomInt(40);
+  const correctAnswer = isPrime(question) ? 'yes' : 'no';
+  return { question, correctAnswer };
+};
 const startPrimeGame = () => {
-  const getQuestion = () => getRandomInt(40);
-  const getCorrectAnswer = (question) => (isPrime(question) ? 'yes' : 'no');
-  const gameDescription = 'Answer "yes" if given number is prime. Otherwise answer "no".';
-  startGame(getQuestion, getCorrectAnswer, gameDescription);
+  const gameDescription = 'Answer "yes" if the given number is prime. Otherwise answer "no".';
+  startGame(getQuestionAndAnswer, gameDescription);
 };
 
 export default startPrimeGame;
