@@ -2,7 +2,7 @@ import startGame from '../index.js';
 import getRandomInt from '../utils.js';
 
 const gcdFound = (a, b) => {
-  let num1 = Math.abs(a); // Создаем копии параметров
+  let num1 = Math.abs(a);
   let num2 = Math.abs(b);
   if (num2 > num1) {
     const temp = num1;

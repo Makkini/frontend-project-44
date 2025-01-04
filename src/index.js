@@ -7,7 +7,7 @@ const startGame = (questionGenerationFunc, correctAnswerFunc, gameDescription) =
   console.log(`Hello, ${name}!`);
   console.log(gameDescription);
 
-  for (let i = 0; i < roundCount; i += 1) {
+  for (let i = 1; i <= roundCount; i += 1) {
     const question = questionGenerationFunc();
     const correctAnswer = correctAnswerFunc(question);
     console.log('Question:', question);
@@ -20,7 +20,7 @@ const startGame = (questionGenerationFunc, correctAnswerFunc, gameDescription) =
       return;
     }
 
-    if (i === 2) {
+    if (i === roundCount) {
       console.log(`Congratulations, ${name}!`);
     }
   }
