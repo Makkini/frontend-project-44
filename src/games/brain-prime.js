@@ -8,7 +8,7 @@ const isPrime = (num) => {
   return num > 1;
 };
 const getQuestionAndAnswer = () => {
-  const question = getRandomInt(40);
+  const question = getRandomInt(40).toString();
   const correctAnswer = isPrime(question) ? 'yes' : 'no';
   return { question, correctAnswer };
 };

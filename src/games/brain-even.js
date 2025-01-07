@@ -4,7 +4,7 @@ import getRandomInt from '../utils.js';
 const isEven = (number) => number % 2 === 0;
 
 const getQuestionAndAnswer = () => {
-  const question = getRandomInt(40);
+  const question = getRandomInt(40).toString();
   const correctAnswer = isEven(question) ? 'yes' : 'no';
   return { question, correctAnswer };
 };
